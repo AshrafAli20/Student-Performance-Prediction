@@ -1,30 +1,34 @@
 
-# =====================================================
+# ==========================================
 # STUDENT PERFORMANCE PREDICTION
-# MULTIPLE LINEAR REGRESSION
-# =====================================================
+# USING LINEAR REGRESSION
+# ==========================================
+
+# 1. Import required libraries
 
 import pandas as pd
 import numpy as np
 import pickle
 import warnings
 
-warnings.filterwarnings("ignore")
-
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+
 from sklearn.metrics import (
     r2_score,
     mean_squared_error,
     mean_absolute_error
 )
 
+warnings.filterwarnings("ignore")
+
+
+# 2. Create a class
 
 class StudentPerformanceModel:
 
-    def __init__(self, dataset_path):
+    def __init__(self):
 
-        self.dataset_path = dataset_path
         self.model = LinearRegression()
 
         self.features = [
@@ -42,27 +46,30 @@ class StudentPerformanceModel:
         self.y_train = None
         self.y_test = None
 
-    # 1. Load dataset
+    # 3. Load dataset
+
     def load_dataset(self):
 
-        self.df = pd.read_csv(self.dataset_path)
+        print("\nLoading Dataset...")
 
-        print("\n========== DATASET INFORMATION ==========")
+        self.df = pd.read_csv("Student_Performance.csv")
 
-        print("\nFirst five records:")
-        print(self.df.head())
+        print("\nDataset Loaded Successfully!")
 
-        print("\nDataset dimensions:")
+        print("\nDataset Shape:")
         print(self.df.shape)
 
-        print("\nMissing values:")
-        print(self.df.isnull().sum())
+        print("\nDataset Columns:")
+        print(self.df.columns.tolist())
 
-        print("\nColumn information:")
-        print(self.df.dtypes)
+        print("\nFirst Five Records:")
+        print(self.df.head())
 
-    # 2. Data preprocessing
+    # 4. Preprocess dataset
+
     def preprocess_data(self):
+
+        print("\nPreprocessing Dataset...")
 
         self.df = self.df.drop_duplicates()
 
@@ -76,6 +83,7 @@ class StudentPerformanceModel:
         )
 
         X = self.df[self.features]
+
         y = self.df[self.target]
 
         self.X_train, self.X_test, self.y_train, self.y_test = (
@@ -87,49 +95,62 @@ class StudentPerformanceModel:
             )
         )
 
-        print("\n========== DATA SPLITTING ==========")
+        print("\nPreprocessing Completed!")
 
-        print("Training features:", self.X_train.shape)
-        print("Training target:", self.y_train.shape)
+        print("Training Data:", self.X_train.shape)
 
-        print("Testing features:", self.X_test.shape)
-        print("Testing target:", self.y_test.shape)
+        print("Testing Data:", self.X_test.shape)
 
-    # 3. Model training
+    # 5. Train model
+
     def train_model(self):
 
-        print("\n========== MODEL TRAINING ==========")
+        print("\nTraining Linear Regression Model...")
 
-        self.model.fit(self.X_train, self.y_train)
+        self.model.fit(
+            self.X_train,
+            self.y_train
+        )
 
-        print("Multiple Linear Regression trained successfully!")
+        print("\nModel Training Completed!")
 
-    # 4. Model evaluation
+    # 6. Evaluate model
+
     def evaluate_model(self):
+
+        print("\nEvaluating Model...")
 
         predictions = self.model.predict(self.X_test)
 
-        r2 = r2_score(self.y_test, predictions)
+        r2 = r2_score(
+            self.y_test,
+            predictions
+        )
 
         mse = mean_squared_error(
-            self.y_test, predictions
+            self.y_test,
+            predictions
         )
 
         rmse = np.sqrt(mse)
 
         mae = mean_absolute_error(
-            self.y_test, predictions
+            self.y_test,
+            predictions
         )
 
-        print("\n========== MODEL EVALUATION ==========")
+        print("\nMODEL PERFORMANCE")
 
-        print(f"R2 Score: {r2:.4f}")
-        print(f"R2 Score Percentage: {r2 * 100:.2f}%")
-        print(f"Mean Squared Error: {mse:.4f}")
-        print(f"Root Mean Squared Error: {rmse:.4f}")
-        print(f"Mean Absolute Error: {mae:.4f}")
+        print("R2 Score:", round(r2, 4))
 
-    # 5. Sample prediction
+        print("MSE:", round(mse, 4))
+
+        print("RMSE:", round(rmse, 4))
+
+        print("MAE:", round(mae, 4))
+
+    # 7. Sample prediction
+
     def sample_prediction(self):
 
         sample = pd.DataFrame(
@@ -137,33 +158,28 @@ class StudentPerformanceModel:
             columns=self.features
         )
 
-        result = self.model.predict(sample)
+        prediction = self.model.predict(sample)
 
-        print("\n========== SAMPLE PREDICTION ==========")
+        print("\nSample Student Prediction:")
 
-        print(
-            f"Predicted Performance Index: {result[0]:.2f}"
-        )
+        print("Performance Index:", round(prediction[0], 2))
 
-    # 6. Save trained model
+    # 8. Save trained model
+
     def save_model(self):
 
-        with open('model.pkl', 'wb') as file:
+        with open("model.pkl", "wb") as file:
 
             pickle.dump(self.model, file)
 
-        print("\nModel saved successfully as model.pkl")
+        print("\nModel Saved Successfully!")
 
 
-# =====================================================
-# MAIN PROGRAM
-# =====================================================
+# 9. Main execution
 
 if __name__ == "__main__":
 
-    student_model = StudentPerformanceModel(
-        'Student_Performance.csv'
-    )
+    student_model = StudentPerformanceModel()
 
     student_model.load_dataset()
 
