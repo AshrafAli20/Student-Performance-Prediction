@@ -1,492 +1,576 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Academic Insight AI | Student Performance Predictor</title>
+    <title>Student Performance Prediction | AcademicAI</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
           rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body>
 
-    <div class="dashboard">
+<div class="dashboard">
 
-        <!-- SIDEBAR -->
-        <aside class="sidebar">
+    <!-- SIDEBAR -->
 
-            <div class="brand">
-                <div class="brand-icon">A</div>
+    <aside class="sidebar">
 
-                <div class="brand-text">
-                    <h2>Academic<span>AI</span></h2>
-                    <p>INTELLIGENCE PLATFORM</p>
-                </div>
+        <div class="brand">
+
+            <div class="brand-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
             </div>
 
-            <div class="sidebar-section">
-                <p class="sidebar-heading">WORKSPACE</p>
-
-                <a href="#" class="nav-item active">
-                    <span class="nav-icon">▦</span>
-                    Dashboard
-                </a>
-
-                <a href="#predictor" class="nav-item">
-                    <span class="nav-icon">⌘</span>
-                    Performance Predictor
-                </a>
-
-                <a href="#about" class="nav-item">
-                    <span class="nav-icon">◈</span>
-                    About Project
-                </a>
+            <div>
+                <h2>Academic<span>AI</span></h2>
+                <p>STUDENT ANALYTICS</p>
             </div>
 
-            <div class="sidebar-bottom">
+        </div>
 
-                <div class="sidebar-help">
-                    <div class="help-icon">?</div>
+        <div class="menu-label">MENU</div>
 
-                    <div>
-                        <h4>Need assistance?</h4>
-                        <p>Explore the prediction tool.</p>
-                    </div>
-                </div>
+        <nav>
 
-                <div class="profile">
-                    <div class="profile-avatar">SA</div>
+            <a href="/" class="nav-link active">
+                <i class="fa-solid fa-chart-pie"></i>
+                Dashboard
+            </a>
 
-                    <div class="profile-info">
-                        <h4>Shaik Ashraf Ali</h4>
-                        <p>Project Developer</p>
-                    </div>
-                </div>
+            <a href="#prediction-form" class="nav-link">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                Prediction
+            </a>
 
-            </div>
+            <a href="#about" class="nav-link">
+                <i class="fa-solid fa-circle-info"></i>
+                About Project
+            </a>
 
-        </aside>
+        </nav>
 
+        <div class="sidebar-bottom">
 
-        <!-- MAIN CONTENT -->
-        <main class="main-content">
+            <div class="sidebar-profile">
 
-            <!-- TOP BAR -->
-            <header class="topbar">
+                <div class="profile-avatar">A</div>
 
                 <div>
-                    <p class="breadcrumb">Workspace / Dashboard</p>
-                    <h1>Student Performance Dashboard</h1>
+                    <h4>Student User</h4>
+                    <p>Academic Dashboard</p>
                 </div>
 
-                <div class="topbar-right">
-                    <div class="status-indicator">
-                        <span class="status-dot"></span>
-                        Model Active
-                    </div>
+            </div>
 
-                    <div class="top-avatar">SA</div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+                <p class="breadcrumb">Pages / Dashboard</p>
+                <h3>Student Performance</h3>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="status">
+                    <span></span>
+                    Model Active
                 </div>
 
-            </header>
+                <div class="top-avatar">A</div>
 
+            </div>
 
-            <!-- WELCOME SECTION -->
-            <section class="welcome-section">
+        </header>
 
-                <div class="welcome-content">
-                    <span class="eyebrow">ACADEMIC INTELLIGENCE</span>
 
-                    <h2>Understand potential.<br>
-                        <span>Predict performance.</span>
-                    </h2>
+        <!-- WELCOME SECTION -->
 
-                    <p>
-                        Use machine learning to estimate student performance
-                        based on study habits, previous scores, and academic
-                        preparation.
-                    </p>
+        <section class="welcome-banner">
 
-                    <a href="#predictor" class="welcome-button">
-                        Start Prediction
-                        <span>→</span>
-                    </a>
-                </div>
+            <div class="welcome-text">
 
-                <div class="welcome-graphic">
-                    <div class="graphic-circle circle-one"></div>
-                    <div class="graphic-circle circle-two"></div>
+                <span class="welcome-tag">ACADEMIC INTELLIGENCE</span>
 
-                    <div class="graphic-card">
-                        <div class="graphic-card-top">
-                            <span>AI ANALYSIS</span>
-                            <span class="graphic-dot"></span>
-                        </div>
-
-                        <div class="chart-bars">
-                            <span style="height: 35%"></span>
-                            <span style="height: 55%"></span>
-                            <span style="height: 45%"></span>
-                            <span style="height: 75%"></span>
-                            <span style="height: 60%"></span>
-                            <span style="height: 90%"></span>
-                            <span style="height: 70%"></span>
-                        </div>
-
-                        <div class="graphic-card-footer">
-                            <span>Performance insights</span>
-                            <strong>AI Powered</strong>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-
-
-            <!-- INFORMATION CARDS -->
-            <section class="overview-grid">
-
-                <div class="overview-card">
-                    <div class="overview-icon purple">✦</div>
-                    <div>
-                        <p>Prediction Engine</p>
-                        <h3>Linear Regression</h3>
-                        <span>Machine learning model</span>
-                    </div>
-                </div>
-
-                <div class="overview-card">
-                    <div class="overview-icon blue">▤</div>
-                    <div>
-                        <p>Input Parameters</p>
-                        <h3>05 Features</h3>
-                        <span>Academic information</span>
-                    </div>
-                </div>
-
-                <div class="overview-card">
-                    <div class="overview-icon green">✓</div>
-                    <div>
-                        <p>System Status</p>
-                        <h3>Ready</h3>
-                        <span>Waiting for your input</span>
-                    </div>
-                </div>
-
-            </section>
-
-
-            <!-- PREDICTION SECTION -->
-            <section class="prediction-layout" id="predictor">
-
-                <div class="form-panel">
-
-                    <div class="section-heading">
-                        <div>
-                            <span class="section-label">PREDICTION WORKSPACE</span>
-                            <h2>Student Information</h2>
-                            <p>Enter the student's details to generate a prediction.</p>
-                        </div>
-
-                        <div class="step-number">01 / 02</div>
-                    </div>
-
-
-                    <form action="{{ url_for('predict') }}" method="POST">
-
-                        <div class="form-grid">
-
-                            <!-- HOURS STUDIED -->
-                            <div class="input-group">
-                                <label for="hours_studied">
-                                    <span class="field-number">01</span>
-                                    Hours Studied
-                                </label>
-
-                                <div class="input-wrapper">
-                                    <span class="input-icon">◷</span>
-
-                                    <input
-                                        type="number"
-                                        id="hours_studied"
-                                        name="hours_studied"
-                                        placeholder="Example: 7"
-                                        min="1"
-                                        max="9"
-                                        step="1"
-                                        required>
-                                    <span class="input-unit">Hours</span>
-                                </div>
-
-                                <small>Daily study duration (1–9 hours)</small>
-                            </div>
-
-
-                            <!-- PREVIOUS SCORES -->
-                            <div class="input-group">
-                                <label for="previous_scores">
-                                    <span class="field-number">02</span>
-                                    Previous Scores
-                                </label>
-
-                                <div class="input-wrapper">
-                                    <span class="input-icon">▤</span>
-
-                                    <input
-                                        type="number"
-                                        id="previous_scores"
-                                        name="previous_scores"
-                                        placeholder="Example: 85"
-                                        min="40"
-                                        max="99"
-                                        step="1"
-                                        required>
-
-                                    <span class="input-unit">/ 100</span>
-                                </div>
-
-                                <small>Student's previous academic score</small>
-                            </div>
-
-
-                            <!-- EXTRACURRICULAR ACTIVITIES -->
-                            <div class="input-group">
-                                <label for="extracurricular_activities">
-                                    <span class="field-number">03</span>
-                                    Extracurricular Activities
-                                </label>
-
-                                <div class="input-wrapper select-wrapper">
-                                    <span class="input-icon">✧</span>
-
-                                    <select
-                                        id="extracurricular_activities"
-                                        name="extracurricular_activities"
-                                        required>
-
-                                        <option value="" disabled selected>
-                                            Select an option
-                                        </option>
-
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
-
-                                    </select>
-                                </div>
-
-                                <small>Participation in extracurricular activities</small>
-                            </div>
-
-
-                            <!-- SLEEP HOURS -->
-                            <div class="input-group">
-                                <label for="sleep_hours">
-                                    <span class="field-number">04</span>
-                                    Sleep Hours
-                                </label>
-
-                                <div class="input-wrapper">
-                                    <span class="input-icon">☾</span>
-
-                                    <input
-                                        type="number"
-                                        id="sleep_hours"
-                                        name="sleep_hours"
-                                        placeholder="Example: 8"
-                                        min="4"
-                                        max="9"
-                                        step="1"
-                                        required>
-
-                                    <span class="input-unit">Hours</span>
-                                </div>
-
-                                <small>Average daily sleeping hours (4–9)</small>
-                            </div>
-
-
-                            <!-- SAMPLE PAPERS -->
-                            <div class="input-group full-width">
-                                <label for="sample_question_papers">
-                                    <span class="field-number">05</span>
-                                    Sample Question Papers Practiced
-                                </label>
-
-                                <div class="input-wrapper">
-                                    <span class="input-icon">▧</span>
-
-                                    <input
-                                        type="number"
-                                        id="sample_question_papers"
-                                        name="sample_question_papers"
-                                        placeholder="Example: 5"
-                                        min="0"
-                                        max="9"
-                                        step="1"
-                                        required>
-
-                                    <span class="input-unit">Papers</span>
-                                </div>
-
-                                <small>Number of sample question papers practiced (0–9)</small>
-                            </div>
-
-                        </div>
-
-
-                        <div class="form-actions">
-
-                            <button type="reset" class="reset-button">
-                                Reset Fields
-                            </button>
-
-                            <button type="submit" class="predict-button">
-                                Generate Prediction
-                                <span>→</span>
-                            </button>
-
-                        </div>
-
-                    </form>
-
-                </div>
-
-
-                <!-- RIGHT INFORMATION PANEL -->
-                <aside class="insight-panel">
-
-                    <div class="insight-top">
-                        <span class="insight-label">HOW IT WORKS</span>
-                        <div class="insight-symbol">✦</div>
-                    </div>
-
-                    <h3>Smarter insights for better learning.</h3>
-
-                    <p>
-                        The system analyses five academic and lifestyle
-                        factors to estimate the student's Performance Index.
-                    </p>
-
-                    <div class="insight-divider"></div>
-
-                    <div class="process-item">
-                        <div class="process-number">01</div>
-                        <div>
-                            <h4>Enter Information</h4>
-                            <p>Provide the student's academic details.</p>
-                        </div>
-                    </div>
-
-                    <div class="process-item">
-                        <div class="process-number">02</div>
-                        <div>
-                            <h4>Machine Learning</h4>
-                            <p>The trained Linear Regression model processes the inputs.</p>
-                        </div>
-                    </div>
-
-                    <div class="process-item">
-                        <div class="process-number">03</div>
-                        <div>
-                            <h4>View Prediction</h4>
-                            <p>Get the estimated student Performance Index.</p>
-                        </div>
-                    </div>
-
-                    <div class="insight-note">
-                        <span>ⓘ</span>
-                        <p>
-                            Predictions are estimates and should not be
-                            treated as guaranteed academic results.
-                        </p>
-                    </div>
-
-                </aside>
-
-            </section>
-
-
-            <!-- RESULT SECTION -->
-            {% if prediction is defined and prediction is not none %}
-
-            <section class="result-section">
-
-                <div class="result-heading">
-                    <span class="section-label">ANALYSIS COMPLETE</span>
-                    <h2>Prediction Result</h2>
-                    <p>Your student's estimated performance is ready.</p>
-                </div>
-
-                <div class="result-card">
-
-                    <div class="result-icon">✦</div>
-
-                    <div class="result-details">
-                        <p>ESTIMATED PERFORMANCE INDEX</p>
-
-                        <h2>{{ "%.2f"|format(prediction|float) }}</h2>
-
-                        <span>Out of 100</span>
-                    </div>
-
-                    <div class="result-category">
-                        {% if prediction|float >= 80 %}
-                            <span class="category-pill excellent">Excellent</span>
-                            <p>High estimated performance</p>
-                        {% elif prediction|float >= 60 %}
-                            <span class="category-pill good">Good</span>
-                            <p>Positive estimated performance</p>
-                        {% elif prediction|float >= 40 %}
-                            <span class="category-pill average">Average</span>
-                            <p>More improvement may help</p>
-                        {% else %}
-                            <span class="category-pill improve">Needs Improvement</span>
-                            <p>Additional academic support may help</p>
-                        {% endif %}
-                    </div>
-
-                </div>
-
-            </section>
-
-            {% endif %}
-
-
-            <!-- ABOUT SECTION -->
-            <section class="about-section" id="about">
-
-                <div>
-                    <span class="section-label">ABOUT THE PROJECT</span>
-                    <h2>Technology behind the prediction</h2>
-                </div>
+                <h1>Predict Your <span>Academic Potential.</span></h1>
 
                 <p>
-                    Academic Insight AI is a student performance prediction
-                    application developed using Python, Flask, Pandas,
-                    Scikit-learn and Linear Regression.
+                    Discover your estimated academic performance using
+                    machine learning. Enter your learning details and
+                    generate an instant prediction.
                 </p>
+
+                <a href="#prediction-form" class="primary-button">
+                    Start Prediction
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+            <div class="welcome-illustration">
+
+                <div class="illustration-circle">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+
+                <div class="floating-card card-one">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Smart Analytics</span>
+                </div>
+
+                <div class="floating-card card-two">
+                    <i class="fa-solid fa-brain"></i>
+                    <span>ML Prediction</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- OVERVIEW CARDS -->
+
+        <section class="overview-grid">
+
+            <div class="overview-card">
+
+                <div class="overview-icon purple">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+
+                <div>
+                    <p>ML Algorithm</p>
+                    <h3>Linear Regression</h3>
+                    <span>Supervised Learning</span>
+                </div>
+
+            </div>
+
+
+            <div class="overview-card">
+
+                <div class="overview-icon blue">
+                    <i class="fa-solid fa-database"></i>
+                </div>
+
+                <div>
+                    <p>Dataset</p>
+                    <h3>Student Performance</h3>
+                    <span>Academic Data</span>
+                </div>
+
+            </div>
+
+
+            <div class="overview-card">
+
+                <div class="overview-icon green">
+                    <i class="fa-solid fa-sliders"></i>
+                </div>
+
+                <div>
+                    <p>Input Features</p>
+                    <h3>05 Features</h3>
+                    <span>Student Parameters</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PREDICTION SECTION -->
+
+        <section class="section-heading" id="prediction-form">
+
+            <div>
+                <span class="section-label">PREDICTION MODULE</span>
+                <h2>Student Information</h2>
+                <p>Provide the details below to estimate performance.</p>
+            </div>
+
+        </section>
+
+
+        <div class="content-grid">
+
+            <!-- FORM -->
+
+            <section class="prediction-card">
+
+                <div class="card-heading">
+
+                    <div class="heading-icon">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+
+                    <div>
+                        <h3>Academic Details</h3>
+                        <p>Enter your learning and study information.</p>
+                    </div>
+
+                </div>
+
+
+                <form action="{{ url_for('predict') }}"
+                      method="POST">
+
+                    <div class="form-grid">
+
+                        <!-- HOURS STUDIED -->
+
+                        <div class="form-group">
+
+                            <label for="hours_studied">
+                                <i class="fa-regular fa-clock"></i>
+                                Hours Studied
+                            </label>
+
+                            <input
+                                type="number"
+                                id="hours_studied"
+                                name="hours_studied"
+                                placeholder="Example: 7"
+                                min="1"
+                                max="9"
+                                step="1"
+                                value="{{ form_data.get('hours_studied', '') }}"
+                                required
+                            >
+
+                            <small>Enter between 1 and 9 hours.</small>
+
+                        </div>
+
+
+                        <!-- PREVIOUS SCORES -->
+
+                        <div class="form-group">
+
+                            <label for="previous_scores">
+                                <i class="fa-solid fa-chart-column"></i>
+                                Previous Scores
+                            </label>
+
+                            <input
+                                type="number"
+                                id="previous_scores"
+                                name="previous_scores"
+                                placeholder="Example: 85"
+                                min="40"
+                                max="99"
+                                step="1"
+                                value="{{ form_data.get('previous_scores', '') }}"
+                                required
+                            >
+
+                            <small>Enter a score between 40 and 99.</small>
+
+                        </div>
+
+
+                        <!-- EXTRACURRICULAR -->
+
+                        <div class="form-group">
+
+                            <label for="extracurricular_activities">
+                                <i class="fa-solid fa-futbol"></i>
+                                Extracurricular Activities
+                            </label>
+
+                            <select
+                                id="extracurricular_activities"
+                                name="extracurricular"
+                                required
+                            >
+
+                                <option value="">Select an option</option>
+
+                                <option value="1"
+                                    {% if form_data.get('extracurricular') == '1' %}selected{% endif %}>
+                                    Yes
+                                </option>
+
+                                <option value="0"
+                                    {% if form_data.get('extracurricular') == '0' %}selected{% endif %}>
+                                    No
+                                </option>
+
+                            </select>
+
+                            <small>Choose your participation status.</small>
+
+                        </div>
+
+
+                        <!-- SLEEP HOURS -->
+
+                        <div class="form-group">
+
+                            <label for="sleep_hours">
+                                <i class="fa-solid fa-moon"></i>
+                                Sleep Hours
+                            </label>
+
+                            <input
+                                type="number"
+                                id="sleep_hours"
+                                name="sleep_hours"
+                                placeholder="Example: 8"
+                                min="4"
+                                max="9"
+                                step="1"
+                                value="{{ form_data.get('sleep_hours', '') }}"
+                                required
+                            >
+
+                            <small>Enter between 4 and 9 hours.</small>
+
+                        </div>
+
+
+                        <!-- SAMPLE PAPERS -->
+
+                        <div class="form-group full-width">
+
+                            <label for="sample_question_papers">
+                                <i class="fa-solid fa-file-lines"></i>
+                                Sample Question Papers Practiced
+                            </label>
+
+                            <input
+                                type="number"
+                                id="sample_question_papers"
+                                name="sample_papers"
+                                placeholder="Example: 5"
+                                min="0"
+                                max="9"
+                                step="1"
+                                value="{{ form_data.get('sample_papers', '') }}"
+                                required
+                            >
+
+                            <small>Enter the number of practice papers (0–9).</small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ERROR MESSAGE -->
+
+                    {% if error %}
+
+                    <div class="error-message">
+
+                        <i class="fa-solid fa-circle-exclamation"></i>
+
+                        {{ error }}
+
+                    </div>
+
+                    {% endif %}
+
+
+                    <!-- SUBMIT BUTTON -->
+
+                    <button type="submit" class="predict-button">
+
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                        Generate Prediction
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </form>
 
             </section>
 
 
-            <!-- FOOTER -->
-            <footer class="footer">
-                <p>© 2026 Academic Insight AI</p>
-                <p>Developed by <strong>Shaik Ashraf Ali</strong></p>
-            </footer>
+            <!-- HOW IT WORKS -->
 
-        </main>
+            <aside class="info-card">
 
-    </div>
+                <div class="info-icon">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+
+                <h3>How It Works</h3>
+
+                <p>
+                    Our machine learning model analyzes your academic
+                    information to estimate your performance index.
+                </p>
+
+                <div class="steps">
+
+                    <div class="step">
+
+                        <div class="step-number">01</div>
+
+                        <div>
+                            <h4>Enter Details</h4>
+                            <p>Provide your study information.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">02</div>
+
+                        <div>
+                            <h4>Model Processing</h4>
+                            <p>Linear Regression processes your inputs.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">03</div>
+
+                        <div>
+                            <h4>Get Prediction</h4>
+                            <p>View your estimated performance index.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="model-note">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <span>
+                        Predictions are estimates and are not guaranteed
+                        academic results.
+                    </span>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+
+        <!-- RESULT SECTION -->
+
+        {% if prediction is not none %}
+
+        <section class="result-card">
+
+            <div class="result-left">
+
+                <div class="result-icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+
+                <div>
+                    <span class="result-label">PREDICTION GENERATED</span>
+
+                    <h2>Your Performance Index</h2>
+
+                    <p>
+                        Your estimated result based on the information
+                        provided.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="result-score">
+
+                <h1>{{ "%.2f"|format(prediction) }}</h1>
+
+                <span>OUT OF 100</span>
+
+            </div>
+
+        </section>
+
+        {% endif %}
+
+
+        <!-- ABOUT PROJECT -->
+
+        <section class="about-section" id="about">
+
+            <span class="section-label">ABOUT THE PROJECT</span>
+
+            <h2>Machine Learning for Academic Insights</h2>
+
+            <p>
+                Student Performance Prediction is a machine learning
+                application developed using Python, Flask, Pandas,
+                NumPy and Scikit-learn. It uses a Linear Regression
+                algorithm to estimate the Performance Index based on
+                student study habits and academic information.
+            </p>
+
+            <div class="technology-list">
+
+                <span>Python</span>
+                <span>Flask</span>
+                <span>Pandas</span>
+                <span>NumPy</span>
+                <span>Scikit-learn</span>
+                <span>HTML</span>
+                <span>CSS</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <p>© 2026 AcademicAI | Student Performance Prediction</p>
+
+            <span>Built with Machine Learning</span>
+
+        </footer>
+
+    </main>
+
+</div>
 
 </body>
 </html>
